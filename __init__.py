@@ -1,6 +1,6 @@
 import requests
 from json import loads
-from ._common import url_from_url_from_hash
+from hitomi_py._common import url_from_url_from_hash
 
 class hitomi:
     
@@ -49,6 +49,9 @@ class Gallery:
             'https://ltn.hitomi.la/galleryblock/{}.html'.format(id)).text
 
     def getImageContent(self, url):
+        '''
+        return the byte data from hitomi image url
+        '''
         return requests.get(url, headers={
             'Referer': 'https://hitomi.la/reader/{}.html'.format(self.ID)
         }).content
